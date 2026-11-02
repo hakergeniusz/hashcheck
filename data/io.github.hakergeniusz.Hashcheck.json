@@ -1,0 +1,58 @@
+{
+  "app-id": "io.github.hakergeniusz.Hashcheck",
+  "runtime": "org.gnome.Platform",
+  "runtime-version": "50",
+  "sdk": "org.gnome.Sdk",
+  "command": "hashcheck",
+  "finish-args": [
+    "--socket=wayland",
+    "--socket=fallback-x11",
+    "--share=ipc",
+    "--device=dri"
+  ],
+  "cleanup": [
+    "/include",
+    "/lib/pkgconfig",
+    "/share/doc",
+    "/share/man",
+    "*.a",
+    "*.la"
+  ],
+  "modules": [
+    {
+      "name": "hashcheck",
+      "buildsystem": "simple",
+      "build-options": {
+        "append-path": "/usr/lib/sdk/rust-toolchain/bin"
+      },
+      "build-commands": [
+        "cargo build --release --locked",
+        "install -Dm0755 target/release/hashcheck /app/bin/hashcheck",
+        "install -Dm0644 data/io.github.hakergeniusz.Hashcheck.desktop /app/share/applications/io.github.hakergeniusz.Hashcheck.desktop",
+        "install -Dm0644 data/io.github.hakergeniusz.Hashcheck.metainfo.xml /app/share/metainfo/io.github.hakergeniusz.Hashcheck.metainfo.xml",
+        "install -Dm0644 data/io.github.hakergeniusz.Hashcheck.gschema.xml /app/share/glib-2.0/schemas/io.github.hakergeniusz.Hashcheck.gschema.xml",
+        "install -Dm0644 data/icons/io.github.hakergeniusz.Hashcheck.svg /app/share/icons/hicolor/scalable/apps/io.github.hakergeniusz.Hashcheck.svg",
+        "install -Dm0644 data/icons/io.github.hakergeniusz.Hashcheck-symbolic.svg /app/share/icons/hicolor/symbolic/apps/io.github.hakergeniusz.Hashcheck-symbolic.svg",
+        "install -Dm0644 data/icons/hashcheck-hash-symbolic.svg /app/share/icons/hicolor/symbolic/actions/hashcheck-hash-symbolic.svg",
+        "install -Dm0644 data/icons/hashcheck-file-symbolic.svg /app/share/icons/hicolor/symbolic/actions/hashcheck-file-symbolic.svg",
+        "install -Dm0644 data/icons/hashcheck-success-symbolic.svg /app/share/icons/hicolor/symbolic/actions/hashcheck-success-symbolic.svg",
+        "install -Dm0644 data/icons/hashcheck-error-symbolic.svg /app/share/icons/hicolor/symbolic/actions/hashcheck-error-symbolic.svg",
+        "glib-compile-schemas /app/share/glib-2.0/schemas"
+      ],
+      "sources": [
+        {
+          "type": "dir",
+          "path": "..",
+          "skip": [
+            ".git/",
+            "target/"
+          ]
+        },
+        {
+          "type": "file",
+          "path": "cargo-sources.json"
+        }
+      ]
+    }
+  ]
+}

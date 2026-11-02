@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schemalist gettext-domain="io.github.hakergeniusz.Hashcheck">
+  <schema id="io.github.hakergeniusz.Hashcheck" path="/io/github/hakergeniusz/Hashcheck/">
+    <key name="window-width" type="i">
+      <default>600</default>
+      <summary>Default window width</summary>
+    </key>
+    <key name="window-height" type="i">
+      <default>460</default>
+      <summary>Default window height</summary>
+    </key>
+    <key name="is-maximized" type="b">
+      <default>false</default>
+      <summary>Default window maximized state</summary>
+    </key>
+    <key name="disabled-hash-functions" type="as">
+      <default>[]</default>
+      <summary>A list of hash functions that won't be calculated</summary>
+    </key>
+  </schema>
+</schemalist>

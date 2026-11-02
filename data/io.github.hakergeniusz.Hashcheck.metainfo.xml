@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component type="desktop-application">
+  <id>io.github.hakergeniusz.Hashcheck</id>
+  <metadata_license>MIT</metadata_license>
+  <project_license>MIT</project_license>
+  <name>Hashcheck</name>
+  <summary>Check hashes for your files</summary>
+  <description>
+    <p>
+      Hashcheck lets you check hashes for your files. Hash a file, verify it
+      against a known hash or compare two files.
+    </p>
+    <p>
+      Supported hash functions: MD5, SHA-1, SHA-256, SHA-512, Blake3, CRC32
+      and Adler32.
+    </p>
+  </description>
+  <developer_name>hakergeniusz</developer_name>
+  <developer id="io.github.hakergeniusz">
+    <name>hakergeniusz</name>
+  </developer>
+  <launchable type="desktop-id">io.github.hakergeniusz.Hashcheck.desktop</launchable>
+  <url type="homepage">https://github.com/hakergeniusz/hashcheck</url>
+  <url type="bugtracker">https://github.com/hakergeniusz/hashcheck/issues</url>
+  <releases>
+    <release version="1.0.0" date="2026-11-02">
+      <description>
+        <p>Initial release.</p>
+      </description>
+    </release>
+  </releases>
+  <content_rating type="oars-1.1"/>
+  <provides>
+    <binary>hashcheck</binary>
+  </provides>
+  <requires>
+    <display_length compare="ge">360</display_length>
+  </requires>
+  <recommends>
+    <control>keyboard</control>
+    <control>pointing</control>
+    <control>touch</control>
+  </recommends>
+</component>

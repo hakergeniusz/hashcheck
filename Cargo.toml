@@ -1,0 +1,24 @@
+[package]
+name = "hashcheck"
+version = "1.0.0"
+edition = "2024"
+description = "Check hashes for your files"
+license = "MIT"
+repository = "https://github.com/hakergeniusz/hashcheck"
+rust-version = "1.85"
+
+[dependencies]
+adw = { package = "libadwaita", version = "0.9", features = ["v1_9"] }
+gtk = { package = "gtk4", version = "0.11", features = ["v4_14"] }
+glib = { version = "0.22", features = ["futures"] }
+async-channel = "2.5"
+md-5 = "0.11"
+sha1 = "0.11"
+sha2 = "0.11"
+blake3 = "1.8"
+crc32fast = "1.5"
+adler = "1.0"
+
+[profile.release]
+lto = "thin"
+strip = true
