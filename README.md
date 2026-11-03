@@ -45,9 +45,17 @@ cargo run
 ## Flatpak
 
 ```sh
-flatpak install org.gnome.Platform//50 org.gnome.Sdk//50
+flatpak install org.gnome.Platform//51 org.gnome.Sdk//51
 flatpak-builder --user --install --force-clean build-dir data/io.github.hakergeniusz.Hashcheck.json
 ```
+
+## Packaging
+
+- Debian: `python3 packaging/deb/build-deb.py . --out dist/hashcheck_1.0.0_amd64.deb`
+- Fedora: `cargo run --release --manifest-path packaging/rpm/Cargo.toml -- . dist/`
+- Arch: `packaging/arch/build.sh` (stages a source tarball, runs makepkg, writes to `dist/`)
+- Flatpak bundle: build with flatpak-builder, then `flatpak build-bundle ~/.local/share/flatpak/repo hashcheck.flatpak io.github.hakergeniusz.Hashcheck --runtime-repo=https://flathub.org/repo/flathub.flatpakrepo`
+
 
 ## License
 

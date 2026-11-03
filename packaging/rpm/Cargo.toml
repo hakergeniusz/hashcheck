@@ -1,0 +1,8 @@
+[package]
+name = "build-rpm"
+version = "1.0.0"
+edition = "2021"
+publish = false
+
+[dependencies]
+rpm = "0.30"

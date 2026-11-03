@@ -1,8 +1,11 @@
 {
   "app-id": "io.github.hakergeniusz.Hashcheck",
   "runtime": "org.gnome.Platform",
-  "runtime-version": "50",
+  "runtime-version": "51",
   "sdk": "org.gnome.Sdk",
+  "sdk-extensions": [
+    "org.freedesktop.Sdk.Extension.rust-stable"
+  ],
   "command": "hashcheck",
   "finish-args": [
     "--socket=wayland",
@@ -23,7 +26,7 @@
       "name": "hashcheck",
       "buildsystem": "simple",
       "build-options": {
-        "append-path": "/usr/lib/sdk/rust-toolchain/bin"
+        "append-path": "/usr/lib/sdk/rust-stable/bin"
       },
       "build-commands": [
         "cargo build --release --locked",

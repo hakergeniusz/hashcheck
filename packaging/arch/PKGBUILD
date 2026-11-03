@@ -1,0 +1,42 @@
+# Maintainer: hakergeniusz <hakergeniusz@users.noreply.github.com>
+# Build with packaging/arch/build.sh (stages a source tarball next to this file).
+pkgname=hashcheck
+pkgver=1.0.0
+pkgrel=1
+pkgdesc='Check hashes for your files'
+arch=(x86_64)
+url='https://github.com/hakergeniusz/hashcheck'
+license=(MIT)
+depends=(gtk4 libadwaita)
+makedepends=(cargo)
+source=("hashcheck-$pkgver.tar.gz")
+sha256sums=('SKIP')
+options=(!strip) # the release binary is already stripped by cargo
+
+build() {
+  cd "$srcdir/$pkgname-$pkgver"
+  export CARGO_TARGET_DIR="${CARGO_TARGET_DIR:-$srcdir/target}"
+  cargo build --release --locked
+}
+
+check() {
+  cd "$srcdir/$pkgname-$pkgver"
+  export CARGO_TARGET_DIR="${CARGO_TARGET_DIR:-$srcdir/target}"
+  cargo test --release --locked
+}
+
+package() {
+  cd "$srcdir/$pkgname-$pkgver"
+  local bindir="${CARGO_TARGET_DIR:-$srcdir/target}/release"
+  install -Dm0755 "$bindir/hashcheck" "$pkgdir/usr/bin/hashcheck"
+  install -Dm0644 data/io.github.hakergeniusz.Hashcheck.desktop "$pkgdir/usr/share/applications/io.github.hakergeniusz.Hashcheck.desktop"
+  install -Dm0644 data/io.github.hakergeniusz.Hashcheck.metainfo.xml "$pkgdir/usr/share/metainfo/io.github.hakergeniusz.Hashcheck.metainfo.xml"
+  install -Dm0644 data/io.github.hakergeniusz.Hashcheck.gschema.xml "$pkgdir/usr/share/glib-2.0/schemas/io.github.hakergeniusz.Hashcheck.gschema.xml"
+  install -Dm0644 data/icons/io.github.hakergeniusz.Hashcheck.svg "$pkgdir/usr/share/icons/hicolor/scalable/apps/io.github.hakergeniusz.Hashcheck.svg"
+  install -Dm0644 data/icons/io.github.hakergeniusz.Hashcheck-symbolic.svg "$pkgdir/usr/share/icons/hicolor/symbolic/apps/io.github.hakergeniusz.Hashcheck-symbolic.svg"
+  local icon
+  for icon in hashcheck-hash-symbolic hashcheck-file-symbolic hashcheck-success-symbolic hashcheck-error-symbolic; do
+    install -Dm0644 "data/icons/$icon.svg" "$pkgdir/usr/share/icons/hicolor/symbolic/actions/$icon.svg"
+  done
+  install -Dm0644 LICENSE "$pkgdir/usr/share/licenses/hashcheck/LICENSE"
+}

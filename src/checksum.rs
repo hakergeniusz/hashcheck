@@ -135,8 +135,10 @@ mod tests {
     use std::path::PathBuf;
 
     fn tmp_file(contents: &[u8]) -> PathBuf {
-        // /tmp can have tight quotas on some systems; target/ is always writable.
-        let mut path = PathBuf::from(env!("CARGO_MANIFEST_DIR")).join("target");
+        // /tmp can have tight quotas on some systems; the target dir is always writable.
+        let mut path = std::env::var_os("CARGO_TARGET_DIR")
+            .map(PathBuf::from)
+            .unwrap_or_else(|| PathBuf::from(env!("CARGO_MANIFEST_DIR")).join("target"));
         path.push(format!("hashcheck-test-{}", std::process::id()));
         let mut file = File::create(&path).unwrap();
         file.write_all(contents).unwrap();

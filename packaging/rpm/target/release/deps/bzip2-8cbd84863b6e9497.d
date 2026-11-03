@@ -1,0 +1,11 @@
+/home/hakergeniusz/Projects/hashcheck/packaging/rpm/target/release/deps/bzip2-8cbd84863b6e9497.d: /home/hakergeniusz/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/bzip2-0.6.1/src/lib.rs /home/hakergeniusz/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/bzip2-0.6.1/src/mem.rs /home/hakergeniusz/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/bzip2-0.6.1/src/bufread.rs /home/hakergeniusz/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/bzip2-0.6.1/src/read.rs /home/hakergeniusz/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/bzip2-0.6.1/src/write.rs
+
+/home/hakergeniusz/Projects/hashcheck/packaging/rpm/target/release/deps/libbzip2-8cbd84863b6e9497.rlib: /home/hakergeniusz/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/bzip2-0.6.1/src/lib.rs /home/hakergeniusz/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/bzip2-0.6.1/src/mem.rs /home/hakergeniusz/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/bzip2-0.6.1/src/bufread.rs /home/hakergeniusz/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/bzip2-0.6.1/src/read.rs /home/hakergeniusz/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/bzip2-0.6.1/src/write.rs
+
+/home/hakergeniusz/Projects/hashcheck/packaging/rpm/target/release/deps/libbzip2-8cbd84863b6e9497.rmeta: /home/hakergeniusz/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/bzip2-0.6.1/src/lib.rs /home/hakergeniusz/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/bzip2-0.6.1/src/mem.rs /home/hakergeniusz/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/bzip2-0.6.1/src/bufread.rs /home/hakergeniusz/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/bzip2-0.6.1/src/read.rs /home/hakergeniusz/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/bzip2-0.6.1/src/write.rs
+
+/home/hakergeniusz/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/bzip2-0.6.1/src/lib.rs:
+/home/hakergeniusz/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/bzip2-0.6.1/src/mem.rs:
+/home/hakergeniusz/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/bzip2-0.6.1/src/bufread.rs:
+/home/hakergeniusz/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/bzip2-0.6.1/src/read.rs:
+/home/hakergeniusz/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/bzip2-0.6.1/src/write.rs:
