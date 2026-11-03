@@ -2,3 +2,4 @@
 /dist
 /build-dir
 /.flatpak-builder
+packaging/rpm/target/
