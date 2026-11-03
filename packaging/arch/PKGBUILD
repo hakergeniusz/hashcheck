@@ -34,9 +34,5 @@ package() {
   install -Dm0644 data/io.github.hakergeniusz.Hashcheck.gschema.xml "$pkgdir/usr/share/glib-2.0/schemas/io.github.hakergeniusz.Hashcheck.gschema.xml"
   install -Dm0644 data/icons/io.github.hakergeniusz.Hashcheck.svg "$pkgdir/usr/share/icons/hicolor/scalable/apps/io.github.hakergeniusz.Hashcheck.svg"
   install -Dm0644 data/icons/io.github.hakergeniusz.Hashcheck-symbolic.svg "$pkgdir/usr/share/icons/hicolor/symbolic/apps/io.github.hakergeniusz.Hashcheck-symbolic.svg"
-  local icon
-  for icon in hashcheck-hash-symbolic hashcheck-file-symbolic hashcheck-success-symbolic hashcheck-error-symbolic; do
-    install -Dm0644 "data/icons/$icon.svg" "$pkgdir/usr/share/icons/hicolor/symbolic/actions/$icon.svg"
-  done
   install -Dm0644 LICENSE "$pkgdir/usr/share/licenses/hashcheck/LICENSE"
 }

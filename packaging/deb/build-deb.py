@@ -25,10 +25,6 @@ FILES = [
     ("data/io.github.hakergeniusz.Hashcheck.gschema.xml", "/usr/share/glib-2.0/schemas/io.github.hakergeniusz.Hashcheck.gschema.xml", 0o644),
     ("data/icons/io.github.hakergeniusz.Hashcheck.svg", "/usr/share/icons/hicolor/scalable/apps/io.github.hakergeniusz.Hashcheck.svg", 0o644),
     ("data/icons/io.github.hakergeniusz.Hashcheck-symbolic.svg", "/usr/share/icons/hicolor/symbolic/apps/io.github.hakergeniusz.Hashcheck-symbolic.svg", 0o644),
-    ("data/icons/hashcheck-hash-symbolic.svg", "/usr/share/icons/hicolor/symbolic/actions/hashcheck-hash-symbolic.svg", 0o644),
-    ("data/icons/hashcheck-file-symbolic.svg", "/usr/share/icons/hicolor/symbolic/actions/hashcheck-file-symbolic.svg", 0o644),
-    ("data/icons/hashcheck-success-symbolic.svg", "/usr/share/icons/hicolor/symbolic/actions/hashcheck-success-symbolic.svg", 0o644),
-    ("data/icons/hashcheck-error-symbolic.svg", "/usr/share/icons/hicolor/symbolic/actions/hashcheck-error-symbolic.svg", 0o644),
     ("LICENSE", "/usr/share/doc/hashcheck/copyright", 0o644),
 ]
 
@@ -37,7 +33,7 @@ DIRS = [
     "/usr/share/metainfo", "/usr/share/glib-2.0", "/usr/share/glib-2.0/schemas",
     "/usr/share/icons", "/usr/share/icons/hicolor", "/usr/share/icons/hicolor/scalable",
     "/usr/share/icons/hicolor/scalable/apps", "/usr/share/icons/hicolor/symbolic",
-    "/usr/share/icons/hicolor/symbolic/apps", "/usr/share/icons/hicolor/symbolic/actions",
+    "/usr/share/icons/hicolor/symbolic/apps",
     "/usr/share/doc", "/usr/share/doc/hashcheck",
 ]
 

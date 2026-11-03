@@ -75,19 +75,6 @@ Blake3, CRC32 and Adler32.\n\nRust + GTK4/libadwaita rewrite of Collision.";
         rpm::FileOptions::new("/usr/share/licenses/hashcheck/LICENSE").permissions(0o644),
     )?;
 
-    for icon in [
-        "hashcheck-hash-symbolic",
-        "hashcheck-file-symbolic",
-        "hashcheck-success-symbolic",
-        "hashcheck-error-symbolic",
-    ] {
-        builder.with_file(
-            repo.join(format!("data/icons/{icon}.svg")),
-            rpm::FileOptions::new(format!("/usr/share/icons/hicolor/symbolic/actions/{icon}.svg"))
-                .permissions(0o644),
-        )?;
-    }
-
     let package = builder.build()?;
     let path = package.write_to(out_dir)?;
     println!("wrote {}", path.display());

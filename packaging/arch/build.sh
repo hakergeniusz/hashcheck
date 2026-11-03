@@ -12,7 +12,7 @@ stage=$(mktemp -d)
 trap 'rm -rf "$stage"' EXIT
 
 mkdir "$stage/hashcheck-$pkgver"
-cp -r "$repo"/{Cargo.toml,Cargo.lock,src,data,LICENSE} "$stage/hashcheck-$pkgver/"
+cp -r "$repo"/{Cargo.toml,Cargo.lock,build.rs,src,data,LICENSE} "$stage/hashcheck-$pkgver/"
 tar -czf "$stage/hashcheck-$pkgver.tar.gz" -C "$stage" "hashcheck-$pkgver"
 cp "$repo/packaging/arch/PKGBUILD" "$stage/"
 

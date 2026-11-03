@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  SPDX-License-Identifier: MIT
+  Action icons are embedded in the binary: flatpak build-export only allows
+  icon files named after the app id, so filesystem-installed action icons
+  would be dropped from the flatpak export.
+
+  Layout note: GTK scans resource icon paths as <path>/<theme-subdir>
+  (e.g. scalable/actions), with no hicolor level — the resource path itself
+  is treated as part of the hicolor theme.
+-->
+<gresources>
+  <gresource prefix="/io/github/hakergeniusz/Hashcheck/icons">
+    <file alias="scalable/actions/hashcheck-hash-symbolic.svg" compressed="true">icons/hashcheck-hash-symbolic.svg</file>
+    <file alias="scalable/actions/hashcheck-file-symbolic.svg" compressed="true">icons/hashcheck-file-symbolic.svg</file>
+    <file alias="scalable/actions/hashcheck-success-symbolic.svg" compressed="true">icons/hashcheck-success-symbolic.svg</file>
+    <file alias="scalable/actions/hashcheck-error-symbolic.svg" compressed="true">icons/hashcheck-error-symbolic.svg</file>
+  </gresource>
+</gresources>

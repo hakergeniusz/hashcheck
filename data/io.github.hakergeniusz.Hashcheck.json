@@ -11,7 +11,8 @@
     "--socket=wayland",
     "--socket=fallback-x11",
     "--share=ipc",
-    "--device=dri"
+    "--device=dri",
+    "--filesystem=home"
   ],
   "cleanup": [
     "/include",
@@ -26,7 +27,10 @@
       "name": "hashcheck",
       "buildsystem": "simple",
       "build-options": {
-        "append-path": "/usr/lib/sdk/rust-stable/bin"
+        "append-path": "/usr/lib/sdk/rust-stable/bin",
+        "env": {
+          "CARGO_HOME": "/run/build/hashcheck/cargo"
+        }
       },
       "build-commands": [
         "cargo build --release --locked",
@@ -36,10 +40,6 @@
         "install -Dm0644 data/io.github.hakergeniusz.Hashcheck.gschema.xml /app/share/glib-2.0/schemas/io.github.hakergeniusz.Hashcheck.gschema.xml",
         "install -Dm0644 data/icons/io.github.hakergeniusz.Hashcheck.svg /app/share/icons/hicolor/scalable/apps/io.github.hakergeniusz.Hashcheck.svg",
         "install -Dm0644 data/icons/io.github.hakergeniusz.Hashcheck-symbolic.svg /app/share/icons/hicolor/symbolic/apps/io.github.hakergeniusz.Hashcheck-symbolic.svg",
-        "install -Dm0644 data/icons/hashcheck-hash-symbolic.svg /app/share/icons/hicolor/symbolic/actions/hashcheck-hash-symbolic.svg",
-        "install -Dm0644 data/icons/hashcheck-file-symbolic.svg /app/share/icons/hicolor/symbolic/actions/hashcheck-file-symbolic.svg",
-        "install -Dm0644 data/icons/hashcheck-success-symbolic.svg /app/share/icons/hicolor/symbolic/actions/hashcheck-success-symbolic.svg",
-        "install -Dm0644 data/icons/hashcheck-error-symbolic.svg /app/share/icons/hicolor/symbolic/actions/hashcheck-error-symbolic.svg",
         "glib-compile-schemas /app/share/glib-2.0/schemas"
       ],
       "sources": [
@@ -51,10 +51,7 @@
             "target/"
           ]
         },
-        {
-          "type": "file",
-          "path": "cargo-sources.json"
-        }
+        "cargo-sources.json"
       ]
     }
   ]

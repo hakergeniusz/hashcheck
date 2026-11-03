@@ -28,11 +28,15 @@ fn main() -> glib::ExitCode {
         .flags(gio::ApplicationFlags::HANDLES_OPEN)
         .build();
 
+    register_icon_resource();
     settings::init();
     setup_actions(&app);
     setup_accels(&app);
 
-    app.connect_startup(|_| utils::load_css());
+    app.connect_startup(|_| {
+        utils::load_css();
+        add_icon_theme_path();
+    });
     app.connect_activate(|app| window::open_window_with_file(app, None));
     app.connect_open(|app, files, _| open_files(app, files));
 
@@ -42,6 +46,26 @@ fn main() -> glib::ExitCode {
         .collect();
     let run_args: Vec<&str> = clean_args.iter().map(|s| s.as_str()).collect();
     app.run_with_args(&run_args)
+}
+
+/// Registers the GResource-embedded action icons (built in build.rs).
+/// Embedding keeps the icons available in every package format — flatpak
+/// build-export would drop non-app-prefixed icon files.
+fn register_icon_resource() {
+    let bytes = include_bytes!(concat!(env!("OUT_DIR"), "/hashcheck.gresource"));
+    let resource = gio::Resource::from_data(&glib::Bytes::from_static(bytes))
+        .expect("failed to load bundled icons");
+    gio::resources_register(&resource);
+}
+
+/// Makes the icon theme resolve the embedded icons. Needs a display, so it
+/// runs at startup.
+fn add_icon_theme_path() {
+    let Some(display) = gtk::gdk::Display::default() else {
+        return;
+    };
+    let base = format!("/{}/icons", config::APP_ID.replace('.', "/"));
+    gtk::IconTheme::for_display(&display).add_resource_path(&base);
 }
 
 fn setup_actions(app: &adw::Application) {
